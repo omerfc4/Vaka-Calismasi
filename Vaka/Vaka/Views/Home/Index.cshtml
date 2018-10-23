@@ -1,0 +1,41 @@
+﻿@using Vaka.Models
+@{
+    ViewBag.Title = "Vaka Çalışması";
+    PostForm model;
+    if (ViewData["Model"] as PostForm != null)
+    {
+        model = ViewData["Model"] as PostForm;
+    }
+    else
+    {
+        model = new PostForm() { TopRightCorner = "5 5", FirstRoboticTravellerLocation = "1 2 N", FirstArray = "LMLMLMLMM", SecondRoboticTravellerLocation = "3 3 E", SecondArray = "MMRMMRMRRM" };
+    }
+    RoboticTraveller firstTraveller = ViewData["FirstTraveller"] as RoboticTraveller;
+    RoboticTraveller secondTraveller = ViewData["SecondTraveller"] as RoboticTraveller;
+}
+<h3>@ViewBag.Msg</h3>
+@Html.Partial("/Views/Partial/Form.cshtml", model)
+<br />
+<br />
+<br />
+<br />
+@if (firstTraveller != null || secondTraveller != null)
+{
+    <div>
+        Output :
+    </div>
+    <br />
+    <br />
+}
+@if (firstTraveller != null)
+{
+    <div>
+        <strong>Birinci Robotik Gezgin : </strong>@firstTraveller.XApsis @firstTraveller.YApsis @firstTraveller.Direction
+    </div>
+}
+@if (secondTraveller != null)
+{
+    <div>
+        <strong>İkinci Robotik Gezgin : </strong>@secondTraveller.XApsis @secondTraveller.YApsis @secondTraveller.Direction
+    </div>
+}

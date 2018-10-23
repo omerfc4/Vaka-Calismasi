@@ -1,0 +1,58 @@
+﻿@model Vaka.Models.PostForm
+@{
+    Layout = null;
+    var action = ViewContext.RouteData.Values["action"].ToString();
+    var controller = ViewContext.RouteData.Values["controller"].ToString();
+}
+@using (Html.BeginForm(action, controller, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        @Html.LabelFor(model => model.TopRightCorner)
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.TopRightCorner)
+        <strong>@Html.ValidationMessageFor(model => model.TopRightCorner, "", new { @style = "color:red" })</strong>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.FirstRoboticTravellerLocation)
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.FirstRoboticTravellerLocation)
+        <strong>@Html.ValidationMessageFor(model => model.FirstRoboticTravellerLocation, "", new { @style = "color:red" })</strong>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.FirstArray)
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.FirstArray)
+        <strong>@Html.ValidationMessageFor(model => model.FirstArray, "", new { @style = "color:red" })</strong>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.SecondRoboticTravellerLocation)
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.SecondRoboticTravellerLocation)
+        <strong>@Html.ValidationMessageFor(model => model.SecondRoboticTravellerLocation, "", new { @style = "color:red" })</strong>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.SecondArray)
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.SecondArray)
+        <strong>@Html.ValidationMessageFor(model => model.SecondArray, "", new { @style = "color:red" })</strong>
+    </div>
+    <div>
+        <br />
+        <br />
+        <button type="submit">Sonucu Gör</button>
+    </div>
+}
